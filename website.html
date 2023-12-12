@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Flow</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            padding: 1em 20px; /* Add padding to the right side */
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            margin-top: 100px;
+        }
+
+        h1.main-heading {
+            font-size: 36px;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            margin-bottom: 20px;
+            z-index: 1; /* Ensure the main heading is above the image */
+        }
+
+        .image-container {
+            position: relative;
+            max-width: 85%;
+            margin-bottom: 20px;
+            z-index: 0; /* Keep the image behind the main heading */
+        }
+
+        .animated-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 5s steps(40) infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .col-md-30 {
+            width: 80%;
+        }
+
+        .flashcard {
+            border: 3px solid #ccc;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+        }
+
+        .flashcard img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            max-width: 100%;
+        }
+
+        .flashcard .content {
+            padding: 30px;
+        }
+
+        section {
+            text-align: right;
+            width: 100%;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 30px;
+            cursor: pointer;
+        }
+
+        #startButton {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        #stopButton {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        #output {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #3498db, #2ecc71, #e74c3c, #3498db);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            transition: background 5s ease-in-out;
+            z-index: -1;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-section">
+            <img src="https://drive.google.com/uc?export=view&id=1-253d2WurYfjlXo1EMgxXDrnnT9SL3S8" alt="Nexus Flow Logo">
+            <h1>Nexus Flow</h1>
+        </div>
+        <nav>
+            <a href="#" id="drBotLink">Dr. Bot</a>
+            <a href="#" id="nutritionAnalyzerLink">Nutrition Analyzer</a>
+            <a href="#" id="aboutTeamLink">About our Team</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1 class="main-heading">Welcome to Nexus Flow</h1>
+        <div class="image-container">
+            <img src="https://www.frost.com/wp-content/uploads/2021/03/Virtual-Health-Telehealth-Telemedicine-1061x675.jpg" alt="Virtual Health Image"> 
+            <div class="animated-caption">Your Gateway to Wellness! 🌿 Unleash the power of virtual healthcare at your fingertips. Your health journey starts here!</div>
+        </div>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-30">
+                    <!-- Flashcard 1 -->
+                    <div class="flashcard">         
+                        <div class="content">
+                            <h2>Dr. Bot</h2>
+                            <p>Welcome to Dr. Bot, your intelligent healthcare assistant designed to provide personalized medical consultancy and tips. With Dr. Bot, you can conveniently record your voice and receive expert advice from qualified doctors. Whether you have health-related concerns, need medical tips, or seek contact information for healthcare professionals, Dr. Bot is here to assist you. Experience the convenience of virtual healthcare at your fingertips. Your health matters, and Dr. Bot is here to help you on your wellness journey.</p>
+                            <section>
+                                <button id="startButton">Start Recording</button>
+                                <button id="stopButton" disabled>Stop Recording</button>
+                                <p id="output"></p>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- Flashcard 2 -->
+			<!-- Flashcard 2 -->
+<div class="flashcard">         
+    <div class="content">
+        <h2>Nutrition Analyzer</h2>
+        <p>Introducing Nutrition Analyzer, your comprehensive tool for understanding and optimizing your dietary habits. Input your daily meals, and let the platform analyze the nutritional content for you. Receive insights into potential deficiencies or excesses in your diet, allowing you to make informed choices for a balanced nutrition plan. Nutrition Analyzer goes beyond simple calorie tracking, providing personalized suggestions to help you achieve your health and wellness goals. Take control of your nutrition and embark on a journey towards a healthier lifestyle with Nutrition Analyzer.</p>
+
+        <label for="foodType">Type of Food:</label>
+        <input type="text" id="foodType" name="foodType" placeholder="Enter the type of food">
+
+        <label for="amount">Amount Taken:</label>
+        <input type="text" id="amount" name="amount" placeholder="Enter the amount taken">
+
+        <label for="units">Units:</label>
+        <select id="units" name="units">
+            <option value="grams">Milligrams</option>
+            <option value="kilograms">Grams</option>
+            <option value="milligrams">Ounces</option>
+            <!-- Add more options as needed -->
+        </select>
+    </div>
+</div>
+
+
+
+
+                    <!-- Flashcard 3 -->
+                    <div class="flashcard">         
+                        <div class="content">
+                            <h2>Our Team</h2>
+                            <p>This is the third flashcard. Customize the content based on your needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Speech-to-text functionality
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const outputElement = document.getElementById('output');
+
+        let recognition;
+
+        startButton.addEventListener('click', () => {
+            recognition = new webkitSpeechRecognition();
+            recognition.lang = 'en';
+            recognition.start();
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                outputElement.textContent = transcript;
+            };
+
+            recognition.onend = () => {
+                console.log('Recognition ended.');
+                recognition.stop();
+            };
+
+            startButton.disabled = true;
+            stopButton.disabled = false;
+        });
+
+        stopButton.addEventListener('click', () => {
+            recognition.stop();
+            startButton.disabled = false;
+            stopButton.disabled = true;
+        });
+    </script>
+</body>
+</html>
